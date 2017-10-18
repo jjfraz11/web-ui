@@ -429,7 +429,7 @@ module.exports = {
                     setTimeout(function(){progress.show = false}, 2000);
             }).thenCompose(function(reader) {
                 if(that.supportsStreaming()) {
-                    var size = props.sizeLow();
+                    var size = Math.pow(2,32) * props.sizeHigh() + props.sizeLow();
                     var maxBlockSize = 1024 * 1024 * 5;
                     var blockSize = size > maxBlockSize ? maxBlockSize : size;
 
